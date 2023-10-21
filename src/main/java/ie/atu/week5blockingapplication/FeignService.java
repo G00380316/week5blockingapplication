@@ -21,4 +21,10 @@ public class FeignService {
         }
         return td;
     }
+
+    public TodoResponse fetchAllData(int id) {
+        TodoResponse td = todoClient.fetchAllData(id);
+        System.out.println(td);
+        return td;
+    }
 }

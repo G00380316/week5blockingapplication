@@ -7,6 +7,7 @@ import java.util.concurrent.CompletableFuture;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
 public class FeignController {
     
@@ -36,4 +37,15 @@ public class FeignController {
 
     }
 
+    @GetMapping("/getalldata")
+    public List<TodoResponse> getalldata() {
+        List<TodoResponse> dataList = new ArrayList<>();
+
+        for (int i = 1; i <= 200; i++) {
+            TodoResponse data = feignService.fetchAllData(i);
+            dataList.add(data);
+        }
+        
+    return dataList;
+}
 }
