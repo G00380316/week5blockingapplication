@@ -54,6 +54,7 @@ public class FeignController {
     @GetMapping("/get/{id}")
     public TodoResponse getid(@PathVariable int id) {
     //http://127.0.0.1:8080/get/196
+    //Covers part c as well prints in terminal and gives back as json format on local host
     TodoResponse data = feignService.fetchEnteredId(id);
         
     return data;
