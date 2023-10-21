@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+
 
 
 @RestController
@@ -42,10 +44,18 @@ public class FeignController {
         List<TodoResponse> dataList = new ArrayList<>();
 
         for (int i = 1; i <= 200; i++) {
-            TodoResponse data = feignService.fetchAllData(i);
+            TodoResponse data = feignService.fetchEnteredId(i);
             dataList.add(data);
         }
         
     return dataList;
-}
+    }
+
+    @GetMapping("/get/{id}")
+    public TodoResponse getid(@PathVariable int id) {
+    //http://127.0.0.1:8080/get/196
+    TodoResponse data = feignService.fetchEnteredId(id);
+        
+    return data;
+    }
 }

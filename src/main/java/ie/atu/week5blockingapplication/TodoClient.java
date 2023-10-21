@@ -11,5 +11,5 @@ public interface TodoClient {
     TodoResponse fetchData();
 
     @GetMapping("/todos/{id}")
-    TodoResponse fetchAllData(@PathVariable int id);
+    TodoResponse fetchEnteredId(@PathVariable int id);
 }
